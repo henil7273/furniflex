@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-export default function Contactus() {
+export default function ontactus() {
 
     const [formData, setFormData] = useState({
         firstName: "",
@@ -11,11 +11,11 @@ export default function Contactus() {
         message: "",
     });
 
-    const handleChange = (e: React.ChangeEvent<HTMLElement & { name: string; value: string }>) => {
+    const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e: React.ChangeEvent<HTMLElement & { name: string; value: string }>) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         console.log("Form Submitted:", formData);
         // You can send formData to backend here
