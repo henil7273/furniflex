@@ -43,11 +43,7 @@ export default function SignupPage() {
           router.push("/login"); // ✅ redirect to login page
         }
       });
-    } catch (e: any) {
-      setServerError(e.message);
-    } finally {
-      setLoading(false);
-    }
+    } 
   };
 
   return (
