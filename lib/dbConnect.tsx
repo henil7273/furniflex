@@ -3,13 +3,18 @@ import mongoose from "mongoose";
 const MONGODB_URI = process.env.MONGO_DB_URI as string;
 if (!MONGODB_URI) throw new Error("Missing MONGO_DB_URI in .env.local");
 
-let cached = (global as any).mongoose as {
-  conn: typeof mongoose | null;
-  promise: Promise<typeof mongoose> | null;
-};
+// Properly type the global object
+declare global {
+  var mongoose: {
+    conn: typeof mongoose | null;
+    promise: Promise<typeof mongoose> | null;
+  } | undefined;
+}
 
-if (!cached) { 
-  cached = (global as any).mongoose = { conn: null, promise: null };
+let cached = global.mongoose || { conn: null, promise: null };
+
+if (!global.mongoose) {
+  global.mongoose = cached;
 }
 
 export async function connectDb() {
@@ -20,5 +25,3 @@ export async function connectDb() {
   cached.conn = await cached.promise;
   return cached.conn;
 }
-
-
