@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-export default function contactus() {
+export default function Contactus() {
 
     const [formData, setFormData] = useState({
         firstName: "",

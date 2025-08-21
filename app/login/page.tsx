@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 
 export default function Loginpage() {
 
-  const Swal = require('sweetalert2')
   const router = useRouter();
   
   const {
