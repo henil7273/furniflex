@@ -11,10 +11,9 @@ export default function SignupPage() {
   const [loading, setLoading] = useState(false);
   const [serverError, setServerError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
-  const Swal = require('sweetalert2')
   const router = useRouter();
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data) => {
     try {
       setLoading(true);
       setServerError(null);
@@ -44,7 +43,7 @@ export default function SignupPage() {
           router.push("/login");  // ✅ redirect to login page
         }
       });
-    } catch (e: any) {
+    } catch (e) {
       setServerError(e.message);
     } finally {
       setLoading(false);
