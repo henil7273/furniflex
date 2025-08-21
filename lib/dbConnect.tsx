@@ -3,19 +3,19 @@ import mongoose from "mongoose";
 const MONGODB_URI = process.env.MONGO_DB_URI as string;
 if (!MONGODB_URI) throw new Error("Missing MONGO_DB_URI in .env.local");
 
-// Extend NodeJS global type for caching in dev
+// Extend the NodeJS global type
 declare global {
   // eslint-disable-next-line no-var
-  var mongooseCache: {
+  var mongoose: {
     conn: typeof mongoose | null;
     promise: Promise<typeof mongoose> | null;
   };
 }
 
-const cached = global.mongooseCache || { conn: null, promise: null };
+const cached = global.mongoose || { conn: null, promise: null };
 
-if (!global.mongooseCache) {
-  global.mongooseCache = cached;
+if (!global.mongoose) {
+  global.mongoose = cached;
 }
 
 export async function connectDb(): Promise<typeof mongoose> {
