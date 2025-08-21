@@ -1,6 +1,7 @@
 import mongoose, { Mongoose } from "mongoose";
 
-const MONGODB_URI = process.env.MONGO_DB_URI;
+const MONGODB_URI = "mongodb://localhost:27017/furniflex"
+;
 if (!MONGODB_URI) throw new Error("Missing MONGO_DB_URI in .env.local");
 
 // Extend NodeJS global type to persist cache across hot reloads
