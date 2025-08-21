@@ -7,7 +7,7 @@ import { useState, useEffect } from "react"
 export default function Page() {
 
   const [menuOpen, setMenuOpen] = useState(false)
-  const [user, setUser] = useState<any>(null)
+  const [user, setUser] = useState<unknown>(null)
 
   useEffect(() => {
     async function fetchUser() {

@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import Swal from 'sweetalert2'
 import { useRouter } from "next/navigation";
 
-export default function loginpage() {
+export default function Loginpage() {
 
   const Swal = require('sweetalert2')
   const router = useRouter();
