@@ -11,11 +11,11 @@ export default function Contactus() {
         message: "",
     });
 
-    const handleChange = (e) => {
+    const handleChange = (e: React.ChangeEvent<HTMLElement & { name: string; value: string }>) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: React.ChangeEvent<HTMLElement & { name: string; value: string }>) => {
         e.preventDefault();
         console.log("Form Submitted:", formData);
         // You can send formData to backend here
