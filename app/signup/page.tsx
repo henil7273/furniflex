@@ -44,7 +44,7 @@ export default function SignupPage() {
         }
       });
     } catch (e: any) {
-      setServerError(e.message);
+      setServerError(e.message);  
     } finally {
       setLoading(false);
     }

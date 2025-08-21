@@ -1,14 +1,24 @@
-import mongoose, { Schema, models, model } from "mongoose";
+import mongoose, { Document, Model, Schema } from "mongoose";
 
-const UserSchema = new Schema(
+export interface IUser extends Document {
+  firstName: string;
+  lastName: string;
+  email: string;
+  passwordHash: string;
+}
+
+const UserSchema: Schema<IUser> = new mongoose.Schema(
   {
-    firstName: { type: String, required: true, trim: true },
-    lastName:  { type: String, required: true, trim: true },
-    email:     { type: String, required: true, unique: true, lowercase: true, trim: true },
+    firstName: { type: String, required: true },
+    lastName: { type: String, required: true },
+    email: { type: String, required: true, unique: true },
     passwordHash: { type: String, required: true },
   },
   { timestamps: true }
 );
 
-const User = models.User || model("User", UserSchema);
+// Fix for hot reload in Next.js
+const User: Model<IUser> =
+  mongoose.models.User || mongoose.model<IUser>("User", UserSchema);
+
 export default User;
