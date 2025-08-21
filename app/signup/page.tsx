@@ -1,49 +1,49 @@
 "use client";
 
-import { useForm } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
 import { useState } from "react";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
 import { useRouter } from "next/navigation";
 
+type SignupFormInputs = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+};
 
 export default function SignupPage() {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, formState: { errors } } = useForm<SignupFormInputs>();
   const [loading, setLoading] = useState(false);
   const [serverError, setServerError] = useState<string | null>(null);
-  const [success, setSuccess] = useState<string | null>(null);
+
   const router = useRouter();
 
-  const onSubmit = async (data) => {
+  const onSubmit: SubmitHandler<SignupFormInputs> = async (data) => {
     try {
       setLoading(true);
       setServerError(null);
-      setSuccess(null);
 
       const res = await fetch("/api/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          firstName: data.firstName,
-          lastName: data.lastName,
-          email: data.email,
-          password: data.password,
-        }),
+        body: JSON.stringify(data),
       });
 
       const json = await res.json();
       if (!res.ok) throw new Error(json.error || "Signup failed");
 
       Swal.fire({
-        title: 'Signup Success!',
-        text: 'Do you want to continue',
-        icon: 'success',
-        confirmButtonText: 'Login now !'
+        title: "Signup Success!",
+        text: "Do you want to continue",
+        icon: "success",
+        confirmButtonText: "Login now!",
       }).then((result) => {
         if (result.isConfirmed) {
-          router.push("/login");  // ✅ redirect to login page
+          router.push("/login"); // ✅ redirect to login page
         }
       });
-    } catch (e) {
+    } catch (e: any) {
       setServerError(e.message);
     } finally {
       setLoading(false);
@@ -66,8 +66,13 @@ export default function SignupPage() {
 
       {/* Right side - Signup Form */}
       <div className="w-1/2 flex justify-center items-center">
-        <form onSubmit={handleSubmit(onSubmit)} className="bg-gray-100 shadow-2xl rounded-2xl p-8 w-full max-w-md">
-          <h2 className="text-2xl font-semibold mb-6 text-center text-gray-800">Create Account</h2>
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="bg-gray-100 shadow-2xl rounded-2xl p-8 w-full max-w-md"
+        >
+          <h2 className="text-2xl font-semibold mb-6 text-center text-gray-800">
+            Create Account
+          </h2>
 
           <div className="grid grid-cols-2 gap-4 mb-4">
             <div>
@@ -75,7 +80,7 @@ export default function SignupPage() {
                 type="text"
                 placeholder="First Name"
                 {...register("firstName", { required: "First name is required" })}
-                className=" border-b-2  p-3 w-full focus:outline-none "
+                className="border-b-2 p-3 w-full focus:outline-none"
               />
               {errors.firstName && (
                 <p className="text-red-500 text-sm mt-1">{errors.firstName.message}</p>
@@ -86,7 +91,7 @@ export default function SignupPage() {
                 type="text"
                 placeholder="Last Name"
                 {...register("lastName", { required: "Last name is required" })}
-                className=" border-b-2  p-3 w-full focus:outline-none "
+                className="border-b-2 p-3 w-full focus:outline-none"
               />
               {errors.lastName && (
                 <p className="text-red-500 text-sm mt-1">{errors.lastName.message}</p>
@@ -105,7 +110,7 @@ export default function SignupPage() {
                   message: "Enter a valid email",
                 },
               })}
-              className=" border-b-2  p-3 w-full focus:outline-none "
+              className="border-b-2 p-3 w-full focus:outline-none"
             />
             {errors.email && (
               <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
@@ -120,13 +125,12 @@ export default function SignupPage() {
                 required: "Password is required",
                 minLength: { value: 6, message: "Password must be at least 6 characters" },
               })}
-              className=" border-b-2  p-3 w-full focus:outline-none "
+              className="border-b-2 p-3 w-full focus:outline-none"
             />
             {errors.password && (
               <p className="text-red-500 text-sm mt-1">{errors.password.message}</p>
             )}
           </div>
-
 
           {serverError && <p className="text-red-600 text-sm mb-3">{serverError}</p>}
 

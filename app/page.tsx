@@ -1,6 +1,7 @@
 "use client"
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
+import Image from 'next/image';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -8,7 +9,6 @@ import 'swiper/css/pagination';
 
 // import required modules
 import { Pagination } from 'swiper/modules';
-
 
 export default function Home() {
   return (
@@ -37,9 +37,11 @@ export default function Home() {
 
           {/* Right */}
           <div className="flex justify-center lg:justify-end">
-            <img
+            <Image
               src="/images/couch.png"
               alt="Couch"
+              width={800}
+              height={600}
               className="w-[250px] sm:w-[400px] md:w-[500px] lg:w-[650px] xl:w-[800px] object-contain"
             />
           </div>
@@ -60,8 +62,11 @@ export default function Home() {
 
               {/* Image */}
               <div className="mb-4 relative z-10 m-4 transform transition-all duration-300 group-hover:-translate-y-4">
-                <img
+                <Image
                   src="/images/products/product-1.png"
+                  alt="Nordic Chair"
+                  width={320}
+                  height={320}
                   className="w-[320px] relative z-10"
                 />
               </div>
@@ -75,10 +80,12 @@ export default function Home() {
               {/* Cross Icon */}
               <div className="absolute bottom-2 left-1/2 z-10 transform -translate-x-1/2 transition-all duration-500 
                 opacity-0 group-hover:opacity-100 group-hover:translate-y-[90%]">
-                <img
-                  src="/icon/cross.svg"
-                  className="w-6 bg-black p-1 rounded-full"
-                  alt="close"
+                <Image
+                  src="/images/products/product-2.png"
+                  alt="Nordic Chair"
+                  width={320}
+                  height={320}
+                  className="w-[320px] relative z-10"
                 />
               </div>
 
@@ -91,8 +98,11 @@ export default function Home() {
 
               {/* Image */}
               <div className="mb-4 relative z-10 m-4 transform transition-all duration-300 group-hover:-translate-y-4">
-                <img
-                  src="/images/products/product-2.png"
+                <Image
+                  src="/images/products/product-3.png"
+                  alt="Nordic Chair"
+                  width={320}
+                  height={320}
                   className="w-[320px] relative z-10"
                 />
               </div>
@@ -106,10 +116,12 @@ export default function Home() {
               {/* Cross Icon */}
               <div className="absolute bottom-2 left-1/2 z-10 transform -translate-x-1/2 transition-all duration-500 
                 opacity-0 group-hover:opacity-100 group-hover:translate-y-[90%]">
-                <img
+                <Image
                   src="/icon/cross.svg"
-                  className="w-6 bg-black p-1 rounded-full"
                   alt="close"
+                  width={24}
+                  height={24}
+                  className="w-6 bg-black p-1 rounded-full"
                 />
               </div>
 
@@ -122,8 +134,11 @@ export default function Home() {
 
               {/* Image */}
               <div className="mb-4 relative z-10 m-4 transform transition-all duration-300 group-hover:-translate-y-4">
-                <img
+                <Image
                   src="/images/products/product-3.png"
+                  alt="Nordic Chair"
+                  width={320}
+                  height={320}
                   className="w-[320px] relative z-10"
                 />
               </div>
@@ -137,10 +152,12 @@ export default function Home() {
               {/* Cross Icon */}
               <div className="absolute bottom-2 left-1/2 z-10 transform -translate-x-1/2 transition-all duration-500 
                 opacity-0 group-hover:opacity-100 group-hover:translate-y-[90%]">
-                <img
+                <Image
                   src="/icon/cross.svg"
-                  className="w-6 bg-black p-1 rounded-full"
                   alt="close"
+                  width={24}
+                  height={24}
+                  className="w-6 bg-black p-1 rounded-full"
                 />
               </div>
 
@@ -165,28 +182,28 @@ export default function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm">
             <div className="pt-2">
-              <img src="/icon/truck.svg" className="mb-2 w-8 h-8" />
+              <Image src="/icon/truck.svg" alt="Truck" width={32} height={32} className="mb-2 w-8 h-8" />
               <h4 className="font-medium">Fast & Free shipping</h4>
               <p className="text-gray-500">
                 Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit.
               </p>
             </div>
             <div className="pt-2">
-              <img src="/icon/bag.svg" className="mb-2 w-8 h-8" />
+              <Image src="/icon/bag.svg" alt="Bag" width={32} height={32} className="mb-2 w-8 h-8" />
               <h4 className="font-medium">Secure Shopping</h4>
               <p className="text-gray-500">
                 Aliquam vulputate velit imperdiet dolor tempor tristique.
               </p>
             </div>
             <div className="pt-2">
-              <img src="/icon/support.svg" className="mb-2 w-8 h-8" />
+              <Image src="/icon/support.svg" alt="Support" width={32} height={32} className="mb-2 w-8 h-8" />
               <h4 className="font-medium">24/7 Support</h4>
               <p className="text-gray-500">
                 Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit.
               </p>
             </div>
             <div className="pt-2">
-              <img src="/icon/return.svg" className="mb-2 w-8 h-8" />
+              <Image src="/icon/return.svg" alt="Return" width={32} height={32} className="mb-2 w-8 h-8" />
               <h4 className="font-medium">Easy Returns</h4>
               <p className="text-gray-500">
                 Aliquam vulputate velit imperdiet dolor tempor tristique.
@@ -197,10 +214,12 @@ export default function Home() {
 
         {/* Right Section */}
         <div className="w-full md:w-1/2 flex justify-center">
-          <img
+          <Image
             src="/images/sample-1.jpg"
-            className="w-full md:w-2/3 rounded-2xl object-cover"
             alt="Furniture"
+            width={600}
+            height={400}
+            className="w-full md:w-2/3 rounded-2xl object-cover"
           />
         </div>
       </div>
@@ -210,28 +229,34 @@ export default function Home() {
         <div className="grid grid-cols-2 gap-4 w-full md:w-2/3 relative">
           {/* Left big image */}
           <div className="row-span-2">
-            <img
+            <Image
               src="/images/img-grid-1.jpg"
-              className="rounded-2xl w-full h-4/5 object-cover"
               alt=""
+              width={500}
+              height={600}
+              className="rounded-2xl w-full h-4/5 object-cover"
             />
           </div>
 
           {/* Right top image */}
           <div>
-            <img
+            <Image
               src="/images/img-grid-2.jpg"
-              className="rounded-2xl w-full h-full object-cover"
               alt=""
+              width={300}
+              height={300}
+              className="rounded-2xl w-full h-full object-cover"
             />
           </div>
 
           {/* Right bottom image overlapping left one */}
           <div className="-ml-10 relative z-20">
-            <img
+            <Image
               src="/images/img-grid-3.jpg"
-              className="rounded-2xl w-full h-4/5 object-cover shadow-lg"
               alt=""
+              width={300}
+              height={300}
+              className="rounded-2xl w-full h-4/5 object-cover shadow-lg"
             />
           </div>
         </div>
@@ -249,19 +274,19 @@ export default function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
             <div className="flex items-center">
-              <img src="/icon/dot.png" className="rounded-full w-4 h-4 mr-2" alt="" />
+              <Image src="/icon/dot.png" alt="" width={16} height={16} className="rounded-full w-4 h-4 mr-2" />
               <p className="text-sm">Donec vitae odio quis nisl dapibus malesuada</p>
             </div>
             <div className="flex items-center">
-              <img src="/icon/dot.png" className="rounded-full w-4 h-4 mr-2" alt="" />
+              <Image src="/icon/dot.png" alt="" width={16} height={16} className="rounded-full w-4 h-4 mr-2" />
               <p className="text-sm">Donec vitae odio quis nisl dapibus malesuada</p>
             </div>
             <div className="flex items-center">
-              <img src="/icon/dot.png" className="rounded-full w-4 h-4 mr-2" alt="" />
+              <Image src="/icon/dot.png" alt="" width={16} height={16} className="rounded-full w-4 h-4 mr-2" />
               <p className="text-sm">Donec vitae odio quis nisl dapibus malesuada</p>
             </div>
             <div className="flex items-center">
-              <img src="/icon/dot.png" className="rounded-full w-4 h-4 mr-2" alt="" />
+              <Image src="/icon/dot.png" alt="" width={16} height={16} className="rounded-full w-4 h-4 mr-2" />
               <p className="text-sm">Donec vitae odio quis nisl dapibus malesuada</p>
             </div>
           </div>
@@ -275,7 +300,9 @@ export default function Home() {
       <div className="flex flex-wrap w-fit mx-auto m-2 p-3 pb-20">
         <div className="flex items-center mx-auto">
           <div>
-            <div><img src="/images/products/product-1.png" className="w-36 " alt="" /></div>
+            <div>
+              <Image src="/images/products/product-1.png" alt="" width={144} height={144} className="w-36" />
+            </div>
           </div>
           <div className="m-2">
             <h4 className="text-xl">Nordic chair</h4>
@@ -286,7 +313,9 @@ export default function Home() {
 
         <div className="flex items-center m-2 p-3 mx-auto">
           <div>
-            <div><img src="/images/products/product-2.png" className="w-36 " alt="" /></div>
+            <div>
+              <Image src="/images/products/product-2.png" alt="" width={144} height={144} className="w-36" />
+            </div>
           </div>
           <div className="m-2">
             <h4 className="text-xl">Nordic chair</h4>
@@ -297,7 +326,9 @@ export default function Home() {
 
         <div className="flex items-center m-2 p-3 mx-auto">
           <div>
-            <div><img src="/images/products/product-3.png" className="w-36 " alt="" /></div>
+            <div>
+              <Image src="/images/products/product-3.png" alt="" width={144} height={144} className="w-36" />
+            </div>
           </div>
           <div className="m-2">
             <h4 className="text-xl">Nordic chair</h4>
@@ -313,10 +344,15 @@ export default function Home() {
         <Swiper pagination={true} modules={[Pagination]} className="mySwiper">
           <SwiperSlide className='text-center mb-15'>
             <div className='mx-auto w-fit mb-4'>
-              “Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. <br /> Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor <br /> tempor tristique. Pellentesque habitant morbi tristique senectus et netus et <br /> malesuada fames ac turpis egestas. Integer convallis volutpat dui quis scelerisque.”
+              “Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. <br />
+              Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor <br />
+              tempor tristique. Pellentesque habitant morbi tristique senectus et netus et <br />
+              malesuada fames ac turpis egestas. Integer convallis volutpat dui quis scelerisque.”
             </div>
             <div className=''>
-              <div className='w-fit mx-auto '><img src="/images/person-1.png" className='w-20 rounded-4xl ' alt="" /></div>
+              <div className='w-fit mx-auto '>
+                <Image src="/images/person-1.png" width={80} height={80} className='w-20 rounded-4xl ' alt="" />
+              </div>
               <p>maria jones</p>
               <p>CEO. Co-founder,XYZ Inc.</p>
             </div>
@@ -324,10 +360,15 @@ export default function Home() {
 
           <SwiperSlide className='text-center'>
             <div className='mx-auto w-fit mb-4'>
-              “Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. <br /> Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor <br /> tempor tristique. Pellentesque habitant morbi tristique senectus et netus et <br /> malesuada fames ac turpis egestas. Integer convallis volutpat dui quis scelerisque.”
+              “Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. <br />
+              Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor <br />
+              tempor tristique. Pellentesque habitant morbi tristique senectus et netus et <br />
+              malesuada fames ac turpis egestas. Integer convallis volutpat dui quis scelerisque.”
             </div>
             <div className=''>
-              <div className='w-fit mx-auto '><img src="/images/person-1.png" className='w-20 rounded-4xl ' alt="" /></div>
+              <div className='w-fit mx-auto '>
+                <Image src="/images/person-1.png" width={80} height={80} className='w-20 rounded-4xl ' alt="" />
+              </div>
               <p>maria jones</p>
               <p>CEO. Co-founder,XYZ Inc.</p>
             </div>
@@ -335,17 +376,21 @@ export default function Home() {
 
           <SwiperSlide className='text-center'>
             <div className='mx-auto w-fit mb-4'>
-              “Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. <br /> Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor <br /> tempor tristique. Pellentesque habitant morbi tristique senectus et netus et <br /> malesuada fames ac turpis egestas. Integer convallis volutpat dui quis scelerisque.”
+              “Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. <br />
+              Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor <br />
+              tempor tristique. Pellentesque habitant morbi tristique senectus et netus et <br />
+              malesuada fames ac turpis egestas. Integer convallis volutpat dui quis scelerisque.”
             </div>
             <div className=''>
-              <div className='w-fit mx-auto '><img src="/images/person-1.png" className='w-20 rounded-4xl ' alt="" /></div>
+              <div className='w-fit mx-auto '>
+                <Image src="/images/person-1.png" width={80} height={80} className='w-20 rounded-4xl ' alt="" />
+              </div>
               <p>maria jones</p>
               <p>CEO. Co-founder,XYZ Inc.</p>
             </div>
           </SwiperSlide>
         </Swiper>
       </div>
-
       <div className='mb-44 '>
         <div className='flex flex-col md:flex-row px-6 pt-20 md:px-16 lg:px-32 xl:px-72 mx-auto gap-12'>
           <div className='text-4xl'>Recent Blog</div>
@@ -353,17 +398,23 @@ export default function Home() {
         </div>
         <div className='flex flex-col md:flex-row px-6 py-16 md:px-16 lg:px-32 xl:px-72 mx-auto gap-12 '>
           <div>
-            <div><img src="/images/post-1.jpg" alt="" className='rounded-2xl' /></div>
+            <div>
+              <Image src="/images/post-1.jpg" width={400} height={300} alt="" className='rounded-2xl' />
+            </div>
             <p className='m-1 font-bold'>First Time Home Owner Ideas</p>
             <span className='m-1'>by <span className='font-bold'>Kristin Watson</span> on Dec 19, 2021</span>
           </div>
           <div>
-            <div><img src="/images/post-2.jpg" alt="" className='rounded-2xl' /></div>
+            <div>
+              <Image src="/images/post-2.jpg" width={400} height={300} alt="" className='rounded-2xl' />
+            </div>
             <p className='m-1 font-bold'>First Time Home Owner Ideas</p>
             <span className='m-1'>by <span className='font-bold'>Kristin Watson</span> on Dec 19, 2021</span>
           </div>
           <div>
-            <div><img src="/images/post-3.jpg" className='rounded-2xl' alt="" /></div>
+            <div>
+              <Image src="/images/post-3.jpg" width={400} height={300} className='rounded-2xl' alt="" />
+            </div>
             <p className='m-1 font-bold'>First Time Home Owner Ideas</p>
             <span className='m-1'>by <span className='font-bold'>Kristin Watson</span> on Dec 19, 2021</span>
           </div>
@@ -371,4 +422,4 @@ export default function Home() {
       </div>
     </div>
   )
-}
+} 

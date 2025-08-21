@@ -1,20 +1,26 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
 import { useRouter } from "next/navigation";
 
-export default function Loginpage() {
+// ✅ Define types for your form fields
+interface LoginFormData {
+  email: string;
+  password: string;
+}
 
+export default function Loginpage() {
   const router = useRouter();
-  
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm<LoginFormData>(); // 👈 Pass type here
 
-  const onSubmit = async (data) => {
+  // ✅ Explicitly type "data"
+  const onSubmit = async (data: LoginFormData) => {
     try {
       const res = await fetch("/api/login", {
         method: "POST",
@@ -27,16 +33,15 @@ export default function Loginpage() {
 
       const json = await res.json();
       if (!res.ok) throw new Error(json.error || "login failed");
-      console.log("login successful:", json,);
 
       Swal.fire({
-        title: 'Login Success!',
-        text: 'Do you want to continue',
-        icon: 'success',
-        confirmButtonText: 'go to homepage'
+        title: "Login Success!",
+        text: "Do you want to continue",
+        icon: "success",
+        confirmButtonText: "Go to homepage",
       }).then((result) => {
         if (result.isConfirmed) {
-          router.push("/");  // ✅ redirect to login page
+          router.push("/"); // ✅ redirect
         }
       });
     } catch (error) {
@@ -50,17 +55,18 @@ export default function Loginpage() {
       style={{ backgroundImage: "url('/images/login.jpg')" }}
     >
       {/* Left side - Website Intro */}
-      <div className="w-1/2 text-[black] flex flex-col   p-10">
+      <div className="w-1/2 text-[black] flex flex-col p-10">
         <h1 className="text-4xl font-bold mb-4">FurniFlex</h1>
-        <p className="text-lg   ">
+        <p className="text-lg">
           Welcome to FurniFlex! <br />
-          Your one-stop destination for <br /> premium furniture with style and comfort. <br />
+          Your one-stop destination for <br /> premium furniture with style and
+          comfort. <br />
           Sign up now to explore <br /> our exclusive collection and offers.
         </p>
       </div>
 
       {/* Right side - login Form */}
-      <div className="w-1/2 flex justify-center items-center bg--100">
+      <div className="w-1/2 flex justify-center items-center">
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="bg-gray-100 shadow-2xl rounded-2xl p-8 w-full max-w-md"
@@ -80,10 +86,12 @@ export default function Loginpage() {
                   message: "Enter a valid email",
                 },
               })}
-              className=" border-b-2  p-3 w-full focus:outline-none "
+              className="border-b-2 p-3 w-full focus:outline-none"
             />
             {errors.email && (
-              <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+              <p className="text-red-500 text-sm mt-1">
+                {errors.email.message}
+              </p>
             )}
           </div>
 
@@ -93,12 +101,17 @@ export default function Loginpage() {
               placeholder="Password"
               {...register("password", {
                 required: "Password is required",
-                minLength: { value: 6, message: "Password must be at least 6 characters" },
+                minLength: {
+                  value: 6,
+                  message: "Password must be at least 6 characters",
+                },
               })}
-              className=" border-b-2  p-3 w-full focus:outline-none "
+              className="border-b-2 p-3 w-full focus:outline-none"
             />
             {errors.password && (
-              <p className="text-red-500 text-sm mt-1">{errors.password.message}</p>
+              <p className="text-red-500 text-sm mt-1">
+                {errors.password.message}
+              </p>
             )}
           </div>
 

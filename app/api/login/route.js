@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import { cookies } from "next/headers";
 import { connectDb } from "@/lib/dbConnect";
 import User from "@/models/user";
 import bcrypt from "bcryptjs";

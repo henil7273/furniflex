@@ -1,4 +1,6 @@
 "use client"
+
+import Image from "next/image"
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -9,8 +11,7 @@ import 'swiper/css/pagination';
 // import required modules
 import { Pagination } from 'swiper/modules';
 
-
-export default function services() {
+export default function Services() {
     return (
         <div>
             <div className="bg-[#3b5d50] px-6 md:px-16 lg:px-32 xl:px-52 ">
@@ -37,9 +38,11 @@ export default function services() {
 
                     {/* Right */}
                     <div className="flex justify-center lg:justify-end">
-                        <img
+                        <Image
                             src="/images/couch.png"
                             alt="Couch"
+                            width={800}
+                            height={600}
                             className="w-[250px] sm:w-[400px] md:w-[500px] lg:w-[650px] xl:w-[800px] object-contain"
                         />
                     </div>
@@ -49,60 +52,58 @@ export default function services() {
             <div className="flex flex-col md:flex-row items-center px-6 py-16 md:px-16 lg:px-32 xl:px-72 mx-auto gap-12">
                 {/* Left Section */}
                 <div className="w-full ">
-
-
                     <div className="grid grid-cols-4 sm:grid-cols-4 gap-6 text-sm">
                         <div className="pt-2">
-                            <img src="/icon/truck.svg" className="mb-2 w-8 h-8" />
+                            <Image src="/icon/truck.svg" alt="Truck" width={32} height={32} className="mb-2 w-8 h-8" />
                             <h4 className="font-medium">Fast & Free shipping</h4>
                             <p className="text-gray-500">
                                 Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit.
                             </p>
                         </div>
                         <div className="pt-2">
-                            <img src="/icon/bag.svg" className="mb-2 w-8 h-8" />
+                            <Image src="/icon/bag.svg" alt="Bag" width={32} height={32} className="mb-2 w-8 h-8" />
                             <h4 className="font-medium">Secure Shopping</h4>
                             <p className="text-gray-500">
                                 Aliquam vulputate velit imperdiet dolor tempor tristique.
                             </p>
                         </div>
                         <div className="pt-2">
-                            <img src="/icon/support.svg" className="mb-2 w-8 h-8" />
+                            <Image src="/icon/support.svg" alt="Support" width={32} height={32} className="mb-2 w-8 h-8" />
                             <h4 className="font-medium">24/7 Support</h4>
                             <p className="text-gray-500">
                                 Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit.
                             </p>
                         </div>
                         <div className="pt-2">
-                            <img src="/icon/return.svg" className="mb-2 w-8 h-8" />
+                            <Image src="/icon/return.svg" alt="Return" width={32} height={32} className="mb-2 w-8 h-8" />
                             <h4 className="font-medium">Easy Returns</h4>
                             <p className="text-gray-500">
                                 Aliquam vulputate velit imperdiet dolor tempor tristique.
                             </p>
                         </div>
                         <div className="pt-2">
-                            <img src="/icon/return.svg" className="mb-2 w-8 h-8" />
+                            <Image src="/icon/return.svg" alt="Return" width={32} height={32} className="mb-2 w-8 h-8" />
                             <h4 className="font-medium">Easy Returns</h4>
                             <p className="text-gray-500">
                                 Aliquam vulputate velit imperdiet dolor tempor tristique.
                             </p>
                         </div>
                         <div className="pt-2">
-                            <img src="/icon/truck.svg" className="mb-2 w-8 h-8" />
+                            <Image src="/icon/truck.svg" alt="Truck" width={32} height={32} className="mb-2 w-8 h-8" />
                             <h4 className="font-medium">Fast & Free shipping</h4>
                             <p className="text-gray-500">
                                 Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit.
                             </p>
                         </div>
                         <div className="pt-2">
-                            <img src="/icon/bag.svg" className="mb-2 w-8 h-8" />
+                            <Image src="/icon/bag.svg" alt="Bag" width={32} height={32} className="mb-2 w-8 h-8" />
                             <h4 className="font-medium">Secure Shopping</h4>
                             <p className="text-gray-500">
                                 Aliquam vulputate velit imperdiet dolor tempor tristique.
                             </p>
                         </div>
                         <div className="pt-2">
-                            <img src="/icon/support.svg" className="mb-2 w-8 h-8" />
+                            <Image src="/icon/support.svg" alt="Support" width={32} height={32} className="mb-2 w-8 h-8" />
                             <h4 className="font-medium">24/7 Support</h4>
                             <p className="text-gray-500">
                                 Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit.
@@ -110,8 +111,6 @@ export default function services() {
                         </div>
                     </div>
                 </div>
-
-
             </div>
 
             <div>
@@ -125,101 +124,56 @@ export default function services() {
                     <div className="flex">
                         {/* Card 1 */}
                         <div className="relative group items-center text-center m-4 rounded-lg p-8 overflow-visible">
-
-                            {/* Image */}
                             <div className="mb-4 relative z-10 m-4 transform transition-all duration-300 group-hover:-translate-y-4">
-                                <img
-                                    src="/images/products/product-1.png"
-                                    className="w-[320px] relative z-10"
-                                />
+                                <Image src="/images/products/product-1.png" alt="Product 1" width={320} height={320} className="w-[320px] relative z-10" />
                             </div>
-
-                            {/* Text */}
                             <div className="relative z-10">
                                 <p className="mb-2">Nordic Chair</p>
                                 <span className="text-xl">$50.00</span>
                             </div>
-
-                            {/* Cross Icon */}
                             <div className="absolute bottom-2 left-1/2 z-10 transform -translate-x-1/2 transition-all duration-500 
                 opacity-0 group-hover:opacity-100 group-hover:translate-y-[90%]">
-                                <img
-                                    src="/icon/cross.svg"
-                                    className="w-6 bg-black p-1 rounded-full"
-                                    alt="close"
-                                />
+                                <Image src="/icon/cross.svg" alt="close" width={24} height={24} className="w-6 bg-black p-1 rounded-full" />
                             </div>
-
-                            {/* Overlay */}
                             <div className="absolute inset-0 z-0 before:absolute before:bottom-0 before:left-0 before:w-full before:h-0 before:bg-[#dce5e4] before:transition-all before:duration-500 group-hover:before:h-3/5 before:content-['']"></div>
                         </div>
 
                         {/* Card 2 */}
                         <div className="relative group items-center text-center m-4 rounded-lg p-8 overflow-visible">
-
-                            {/* Image */}
                             <div className="mb-4 relative z-10 m-4 transform transition-all duration-300 group-hover:-translate-y-4">
-                                <img
-                                    src="/images/products/product-2.png"
-                                    className="w-[320px] relative z-10"
-                                />
+                                <Image src="/images/products/product-2.png" alt="Product 2" width={320} height={320} className="w-[320px] relative z-10" />
                             </div>
-
-                            {/* Text */}
                             <div className="relative z-10">
                                 <p className="mb-2">Nordic Chair</p>
                                 <span className="text-xl">$50.00</span>
                             </div>
-
-                            {/* Cross Icon */}
                             <div className="absolute bottom-2 left-1/2 z-10 transform -translate-x-1/2 transition-all duration-500 
                 opacity-0 group-hover:opacity-100 group-hover:translate-y-[90%]">
-                                <img
-                                    src="/icon/cross.svg"
-                                    className="w-6 bg-black p-1 rounded-full"
-                                    alt="close"
-                                />
+                                <Image src="/icon/cross.svg" alt="close" width={24} height={24} className="w-6 bg-black p-1 rounded-full" />
                             </div>
-
-                            {/* Overlay */}
                             <div className="absolute inset-0 z-0 before:absolute before:bottom-0 before:left-0 before:w-full before:h-0 before:bg-[#dce5e4] before:transition-all before:duration-500 group-hover:before:h-3/5 before:content-['']"></div>
                         </div>
 
                         {/* Card 3 */}
                         <div className="relative group items-center text-center m-4 rounded-lg p-8 overflow-visible">
-
-                            {/* Image */}
                             <div className="mb-4 relative z-10 m-4 transform transition-all duration-300 group-hover:-translate-y-4">
-                                <img
-                                    src="/images/products/product-3.png"
-                                    className="w-[320px] relative z-10"
-                                />
+                                <Image src="/images/products/product-3.png" alt="Product 3" width={320} height={320} className="w-[320px] relative z-10" />
                             </div>
-
-                            {/* Text */}
                             <div className="relative z-10">
                                 <p className="mb-2">Nordic Chair</p>
                                 <span className="text-xl">$50.00</span>
                             </div>
-
-                            {/* Cross Icon */}
                             <div className="absolute bottom-2 left-1/2 z-10 transform -translate-x-1/2 transition-all duration-500 
                 opacity-0 group-hover:opacity-100 group-hover:translate-y-[90%]">
-                                <img
-                                    src="/icon/cross.svg"
-                                    className="w-6 bg-black p-1 rounded-full"
-                                    alt="close"
-                                />
+                                <Image src="/icon/cross.svg" alt="close" width={24} height={24} className="w-6 bg-black p-1 rounded-full" />
                             </div>
-
-                            {/* Overlay */}
                             <div className="absolute inset-0 z-0 before:absolute before:bottom-0 before:left-0 before:w-full before:h-0 before:bg-[#dce5e4] before:transition-all before:duration-500 group-hover:before:h-3/5 before:content-['']"></div>
                         </div>
                     </div>
-
                 </div>
             </div>
 
+            {/* Testimonials */}
             <div className='pb-40'>
                 <h1 className="text-4xl text-center py-4  ">Testimonials</h1>
 
@@ -229,7 +183,9 @@ export default function services() {
                             “Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. <br /> Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor <br /> tempor tristique. Pellentesque habitant morbi tristique senectus et netus et <br /> malesuada fames ac turpis egestas. Integer convallis volutpat dui quis scelerisque.”
                         </div>
                         <div className=''>
-                            <div className='w-fit mx-auto '><img src="/images/person-1.png" className='w-20 rounded-4xl ' alt="" /></div>
+                            <div className='w-fit mx-auto '>
+                                <Image src="/images/person-1.png" alt="Person 1" width={80} height={80} className='w-20 rounded-4xl ' />
+                            </div>
                             <p>maria jones</p>
                             <p>CEO. Co-founder,XYZ Inc.</p>
                         </div>
@@ -240,7 +196,9 @@ export default function services() {
                             “Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. <br /> Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor <br /> tempor tristique. Pellentesque habitant morbi tristique senectus et netus et <br /> malesuada fames ac turpis egestas. Integer convallis volutpat dui quis scelerisque.”
                         </div>
                         <div className=''>
-                            <div className='w-fit mx-auto '><img src="/images/person-1.png" className='w-20 rounded-4xl ' alt="" /></div>
+                            <div className='w-fit mx-auto '>
+                                <Image src="/images/person-1.png" alt="Person 1" width={80} height={80} className='w-20 rounded-4xl ' />
+                            </div>
                             <p>maria jones</p>
                             <p>CEO. Co-founder,XYZ Inc.</p>
                         </div>
@@ -251,7 +209,9 @@ export default function services() {
                             “Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. <br /> Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor <br /> tempor tristique. Pellentesque habitant morbi tristique senectus et netus et <br /> malesuada fames ac turpis egestas. Integer convallis volutpat dui quis scelerisque.”
                         </div>
                         <div className=''>
-                            <div className='w-fit mx-auto '><img src="/images/person-1.png" className='w-20 rounded-4xl ' alt="" /></div>
+                            <div className='w-fit mx-auto '>
+                                <Image src="/images/person-1.png" alt="Person 1" width={80} height={80} className='w-20 rounded-4xl ' />
+                            </div>
                             <p>maria jones</p>
                             <p>CEO. Co-founder,XYZ Inc.</p>
                         </div>

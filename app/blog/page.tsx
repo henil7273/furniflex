@@ -1,4 +1,5 @@
 "use client"
+import Image from "next/image"
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -19,51 +20,51 @@ export default function blog() {
                 </div>
                 <div className='flex flex-col md:flex-row px-6 py-16 md:px-16 lg:px-32 xl:px-72 mx-auto gap-12 '>
                     <div>
-                        <div><img src="/images/post-1.jpg" alt="" className='rounded-2xl' /></div>
+                        <div><Image src="/images/post-1.jpg" alt="" className='rounded-2xl' width={500} height={300} /></div>
                         <p className='m-1 font-bold'>First Time Home Owner Ideas</p>
                         <span className='m-1'>by <span className='font-bold'>Kristin Watson</span> on Dec 19, 2021</span>
                     </div>
                     <div>
-                        <div><img src="/images/post-2.jpg" alt="" className='rounded-2xl' /></div>
+                        <div><Image src="/images/post-2.jpg" alt="" className='rounded-2xl' width={500} height={300} /></div>
                         <p className='m-1 font-bold'>First Time Home Owner Ideas</p>
                         <span className='m-1'>by <span className='font-bold'>Kristin Watson</span> on Dec 19, 2021</span>
                     </div>
                     <div>
-                        <div><img src="/images/post-3.jpg" className='rounded-2xl' alt="" /></div>
-                        <p className='m-1 font-bold'>First Time Home Owner Ideas</p>
-                        <span className='m-1'>by <span className='font-bold'>Kristin Watson</span> on Dec 19, 2021</span>
-                    </div>
-                </div>
-                <div className='flex flex-col md:flex-row px-6 py-16 md:px-16 lg:px-32 xl:px-72 mx-auto gap-12 '>
-                    <div>
-                        <div><img src="/images/post-2.jpg" alt="" className='rounded-2xl' /></div>
-                        <p className='m-1 font-bold'>First Time Home Owner Ideas</p>
-                        <span className='m-1'>by <span className='font-bold'>Kristin Watson</span> on Dec 19, 2021</span>
-                    </div>
-                    <div>
-                        <div><img src="/images/post-3.jpg" alt="" className='rounded-2xl' /></div>
-                        <p className='m-1 font-bold'>First Time Home Owner Ideas</p>
-                        <span className='m-1'>by <span className='font-bold'>Kristin Watson</span> on Dec 19, 2021</span>
-                    </div>
-                    <div>
-                        <div><img src="/images/post-1.jpg" className='rounded-2xl' alt="" /></div>
+                        <div><Image src="/images/post-3.jpg" className='rounded-2xl' alt="" width={500} height={300} /></div>
                         <p className='m-1 font-bold'>First Time Home Owner Ideas</p>
                         <span className='m-1'>by <span className='font-bold'>Kristin Watson</span> on Dec 19, 2021</span>
                     </div>
                 </div>
                 <div className='flex flex-col md:flex-row px-6 py-16 md:px-16 lg:px-32 xl:px-72 mx-auto gap-12 '>
                     <div>
-                        <div><img src="/images/post-3.jpg" alt="" className='rounded-2xl' /></div>
+                        <div><Image src="/images/post-2.jpg" alt="" className='rounded-2xl' width={500} height={300} /></div>
                         <p className='m-1 font-bold'>First Time Home Owner Ideas</p>
                         <span className='m-1'>by <span className='font-bold'>Kristin Watson</span> on Dec 19, 2021</span>
                     </div>
                     <div>
-                        <div><img src="/images/post-1.jpg" alt="" className='rounded-2xl' /></div>
+                        <div><Image src="/images/post-3.jpg" alt="" className='rounded-2xl' width={500} height={300} /></div>
                         <p className='m-1 font-bold'>First Time Home Owner Ideas</p>
                         <span className='m-1'>by <span className='font-bold'>Kristin Watson</span> on Dec 19, 2021</span>
                     </div>
                     <div>
-                        <div><img src="/images/post-2.jpg" className='rounded-2xl' alt="" /></div>
+                        <div><Image src="/images/post-1.jpg" className='rounded-2xl' alt="" width={500} height={300} /></div>
+                        <p className='m-1 font-bold'>First Time Home Owner Ideas</p>
+                        <span className='m-1'>by <span className='font-bold'>Kristin Watson</span> on Dec 19, 2021</span>
+                    </div>
+                </div>
+                <div className='flex flex-col md:flex-row px-6 py-16 md:px-16 lg:px-32 xl:px-72 mx-auto gap-12 '>
+                    <div>
+                        <div><Image src="/images/post-3.jpg" alt="" className='rounded-2xl' width={500} height={300} /></div>
+                        <p className='m-1 font-bold'>First Time Home Owner Ideas</p>
+                        <span className='m-1'>by <span className='font-bold'>Kristin Watson</span> on Dec 19, 2021</span>
+                    </div>
+                    <div>
+                        <div><Image src="/images/post-1.jpg" alt="" className='rounded-2xl' width={500} height={300} /></div>
+                        <p className='m-1 font-bold'>First Time Home Owner Ideas</p>
+                        <span className='m-1'>by <span className='font-bold'>Kristin Watson</span> on Dec 19, 2021</span>
+                    </div>
+                    <div>
+                        <div><Image src="/images/post-2.jpg" className='rounded-2xl' alt="" width={500} height={300} /></div>
                         <p className='m-1 font-bold'>First Time Home Owner Ideas</p>
                         <span className='m-1'>by <span className='font-bold'>Kristin Watson</span> on Dec 19, 2021</span>
                     </div>
@@ -79,7 +80,7 @@ export default function blog() {
                             “Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. <br /> Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor <br /> tempor tristique. Pellentesque habitant morbi tristique senectus et netus et <br /> malesuada fames ac turpis egestas. Integer convallis volutpat dui quis scelerisque.”
                         </div>
                         <div className=''>
-                            <div className='w-fit mx-auto '><img src="/images/person-1.png" className='w-20 rounded-4xl ' alt="" /></div>
+                            <div className='w-fit mx-auto '><Image src="/images/person-1.png" className='w-20 rounded-4xl ' alt="" width={80} height={80} /></div>
                             <p>maria jones</p>
                             <p>CEO. Co-founder,XYZ Inc.</p>
                         </div>
@@ -90,7 +91,7 @@ export default function blog() {
                             “Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. <br /> Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor <br /> tempor tristique. Pellentesque habitant morbi tristique senectus et netus et <br /> malesuada fames ac turpis egestas. Integer convallis volutpat dui quis scelerisque.”
                         </div>
                         <div className=''>
-                            <div className='w-fit mx-auto '><img src="/images/person-1.png" className='w-20 rounded-4xl ' alt="" /></div>
+                            <div className='w-fit mx-auto '><Image src="/images/person-1.png" className='w-20 rounded-4xl ' alt="" width={80} height={80} /></div>
                             <p>maria jones</p>
                             <p>CEO. Co-founder,XYZ Inc.</p>
                         </div>
@@ -101,7 +102,7 @@ export default function blog() {
                             “Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. <br /> Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor <br /> tempor tristique. Pellentesque habitant morbi tristique senectus et netus et <br /> malesuada fames ac turpis egestas. Integer convallis volutpat dui quis scelerisque.”
                         </div>
                         <div className=''>
-                            <div className='w-fit mx-auto '><img src="/images/person-1.png" className='w-20 rounded-4xl ' alt="" /></div>
+                            <div className='w-fit mx-auto '><Image src="/images/person-1.png" className='w-20 rounded-4xl ' alt="" width={80} height={80} /></div>
                             <p>maria jones</p>
                             <p>CEO. Co-founder,XYZ Inc.</p>
                         </div>

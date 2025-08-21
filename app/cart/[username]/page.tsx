@@ -1,8 +1,9 @@
 "use client"
-import { useParams } from "next/navigation";
+// import { useParams } from "next/navigation";
+import Image from "next/image";
 
 export default function CartPage() {
-    const { username } = useParams();
+    // const { username } = useParams();
 
     return (
         <div className="">
@@ -27,7 +28,13 @@ export default function CartPage() {
                             <tbody>
                                 <tr className="border-b">
                                     <td className="px-4 py-2">
-                                        <img src="/images/products/product-1.png" alt="Product 1" className="w-40 h-40 object-contain" />
+                                        <Image
+                                            src="/images/products/product-1.png"
+                                            alt="Product 1"
+                                            width={160}
+                                            height={160}
+                                            className="w-40 h-40 object-contain"
+                                        />
                                     </td>
                                     <td className="px-4 py-2">
                                         <h2 className="font-semibold text-gray-800">Product 1</h2>

@@ -14,6 +14,7 @@ export async function GET() {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     return NextResponse.json({ user: decoded });
   } catch (err) {
+    console.log(err)
     return NextResponse.json({ user: null }, { status: 401 });
   }
 }

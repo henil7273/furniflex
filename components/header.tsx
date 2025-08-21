@@ -5,10 +5,19 @@ import Image from "next/image"
 // import { useSelector } from "react-redux"
 import { useState, useEffect } from "react"
 
+type User = {
+  firstName: string;
+  lastName?: string;
+  email?: string;
+  // add other properties if needed
+}
+
+
 export default function Page() {
   const [menuOpen, setMenuOpen] = useState(false)
-  const [user, setUser] = useState<any>(null)
+  const [user, setUser] = useState<User | null>(null)
 
+  
   useEffect(() => {
     async function fetchUser() {
       try {
