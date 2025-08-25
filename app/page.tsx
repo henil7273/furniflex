@@ -13,7 +13,7 @@ import { Pagination } from 'swiper/modules';
 export default function Home() {
   return (
     <div>
-      <div className="bg-[#3b5d50] px-6 md:px-16 lg:px-32 xl:px-52 ">
+      <div className="bg-[#3b5d50] px-6 py-8 md:px-16 lg:px-32 xl:px-52 ">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
 
           {/* Left */}
@@ -49,19 +49,19 @@ export default function Home() {
       </div>
 
       <div>
-        <div className="flex  text-black px-6 py-24 md:px-16 lg:px-32 xl:px-52 justify-center">
+        <div className="lg:flex md:block text-center text-black px-6 py-24 md:px-16 lg:px-32 xl:px-52 justify-center">
           <div className="mt-12">
             <h2 className="text-3xl mb-4 ">Crafted with <br /> excellent material.</h2>
             <p className="mb-4 text-gray-600 leading-medium">Donec vitae odio quis nisl dapibus malesuada.<br /> Nullam ac aliquet velit. Aliquam vulputate velit <br /> imperdiet dolor tempor tristique.</p>
             <button className="px-6 py-3 rounded-4xl bg-[#2f2f2f] text-white">Explore</button>
           </div>
 
-          <div className="flex">
+          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-6">
             {/* Card 1 */}
             <div className="relative group items-center text-center m-4 rounded-lg p-8 overflow-visible">
 
               {/* Image */}
-              <div className="mb-4 relative z-10 m-4 transform transition-all duration-300 group-hover:-translate-y-4">
+              <div className="mb-4 relative z-10 transform transition-all duration-300 group-hover:-translate-y-4 flex justify-center">
                 <Image
                   src="/images/products/product-1.png"
                   alt="Nordic Chair"
@@ -70,6 +70,7 @@ export default function Home() {
                   className="w-[320px] relative z-10"
                 />
               </div>
+
 
               {/* Text */}
               <div className="relative z-10">
@@ -81,11 +82,11 @@ export default function Home() {
               <div className="absolute bottom-2 left-1/2 z-10 transform -translate-x-1/2 transition-all duration-500 
                 opacity-0 group-hover:opacity-100 group-hover:translate-y-[90%]">
                 <Image
-                  src="/images/products/product-2.png"
-                  alt="Nordic Chair"
-                  width={320}
-                  height={320}
-                  className="w-[320px] relative z-10"
+                  src="/icon/cross.svg"
+                  alt="close"
+                  width={24}
+                  height={24}
+                  className="w-6 bg-black p-1 rounded-full"
                 />
               </div>
 
@@ -97,15 +98,16 @@ export default function Home() {
             <div className="relative group items-center text-center m-4 rounded-lg p-8 overflow-visible">
 
               {/* Image */}
-              <div className="mb-4 relative z-10 m-4 transform transition-all duration-300 group-hover:-translate-y-4">
+              <div className="mb-4 relative z-10 transform transition-all duration-300 group-hover:-translate-y-4 flex justify-center">
                 <Image
-                  src="/images/products/product-3.png"
+                  src="/images/products/product-2.png"
                   alt="Nordic Chair"
                   width={320}
                   height={320}
                   className="w-[320px] relative z-10"
                 />
               </div>
+
 
               {/* Text */}
               <div className="relative z-10">
@@ -133,7 +135,7 @@ export default function Home() {
             <div className="relative group items-center text-center m-4 rounded-lg p-8 overflow-visible">
 
               {/* Image */}
-              <div className="mb-4 relative z-10 m-4 transform transition-all duration-300 group-hover:-translate-y-4">
+              <div className="mb-4 relative z-10 transform transition-all duration-300 group-hover:-translate-y-4 flex justify-center">
                 <Image
                   src="/images/products/product-3.png"
                   alt="Nordic Chair"
@@ -142,6 +144,7 @@ export default function Home() {
                   className="w-[320px] relative z-10"
                 />
               </div>
+
 
               {/* Text */}
               <div className="relative z-10">
@@ -165,7 +168,6 @@ export default function Home() {
               <div className="absolute inset-0 z-0 before:absolute before:bottom-0 before:left-0 before:w-full before:h-0 before:bg-[#dce5e4] before:transition-all before:duration-500 group-hover:before:h-3/5 before:content-['']"></div>
             </div>
           </div>
-
         </div>
       </div>
 
@@ -399,21 +401,21 @@ export default function Home() {
         <div className='flex flex-col md:flex-row px-6 py-16 md:px-16 lg:px-32 xl:px-72 mx-auto gap-12 '>
           <div>
             <div>
-              <Image src="/images/post-1.jpg" width={400} height={300} alt="" className='rounded-2xl' />
+              <Image src="/images/post-1.jpg" width={400} height={300} alt="" className='rounded-2xl w-full' />
             </div>
             <p className='m-1 font-bold'>First Time Home Owner Ideas</p>
             <span className='m-1'>by <span className='font-bold'>Kristin Watson</span> on Dec 19, 2021</span>
           </div>
           <div>
             <div>
-              <Image src="/images/post-2.jpg" width={400} height={300} alt="" className='rounded-2xl' />
+              <Image src="/images/post-2.jpg" width={400} height={300} alt="" className='rounded-2xl w-full' />
             </div>
             <p className='m-1 font-bold'>First Time Home Owner Ideas</p>
             <span className='m-1'>by <span className='font-bold'>Kristin Watson</span> on Dec 19, 2021</span>
           </div>
           <div>
             <div>
-              <Image src="/images/post-3.jpg" width={400} height={300} className='rounded-2xl' alt="" />
+              <Image src="/images/post-3.jpg" width={400} height={300} className='rounded-2xl w-full' alt="" />
             </div>
             <p className='m-1 font-bold'>First Time Home Owner Ideas</p>
             <span className='m-1'>by <span className='font-bold'>Kristin Watson</span> on Dec 19, 2021</span>

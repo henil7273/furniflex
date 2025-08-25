@@ -1,7 +1,7 @@
 import mongoose, { Mongoose } from "mongoose";
 
-const MONGODB_URI = "mongodb://localhost:27017/furniflex"
-;
+const MONGODB_URI = "mongodb+srv://henil:it2mUUkmJCniUw8F@cluster0.vxzucnz.mongodb.net/furniflex"
+  ;
 if (!MONGODB_URI) throw new Error("Missing MONGO_DB_URI in .env.local");
 
 // Extend NodeJS global type to persist cache across hot reloads

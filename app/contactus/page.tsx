@@ -11,7 +11,9 @@ export default function Contactus() {
     message: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -21,8 +23,9 @@ export default function Contactus() {
   };
 
   return (
-    <div className="pb-40">
-      <div className="bg-[#3b5d50] px-6 md:px-16 lg:px-32 xl:px-52 ">
+    <div className="pb-20">
+      {/* Hero Section */}
+      <div className="bg-[#3b5d50] px-6 md:px-16 lg:px-32 xl:px-52 py-16">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
           {/* Left */}
           <div className="text-white text-center lg:text-left max-w-xl">
@@ -57,60 +60,48 @@ export default function Contactus() {
       </div>
 
       {/* Contact Details */}
-      <div className="flex mx-auto w-fit py-20">
-        <div className="flex items-center m-4">
-          <div>
-            <Image
-              src="/icon/location-pin.png"
-              alt="Location"
-              width={40}
-              height={40}
-              className="p-3 bg-[#3b5d50] rounded-2xl"
-            />
-          </div>
-          <div className="ml-2">
-            <p>307, Tulsi arcade, mota varchha, surat</p>
-          </div>
+      <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-8 py-16 px-6 md:px-16 lg:px-32 xl:px-52">
+        <div className="flex items-center gap-3">
+          <Image
+            src="/icon/location-pin.png"
+            alt="Location"
+            width={40}
+            height={40}
+            className="p-3 bg-[#3b5d50] rounded-2xl"
+          />
+          <p className="text-center sm:text-left">307, Tulsi arcade, mota varchha, surat</p>
         </div>
 
-        <div className="flex items-center m-4">
-          <div>
-            <Image
-              src="/icon/email.png"
-              alt="Email"
-              width={40}
-              height={40}
-              className="p-3 bg-[#3b5d50] rounded-2xl"
-            />
-          </div>
-          <div className="ml-2">
-            <p>info@Furniflex.com</p>
-          </div>
+        <div className="flex items-center gap-3">
+          <Image
+            src="/icon/email.png"
+            alt="Email"
+            width={40}
+            height={40}
+            className="p-3 bg-[#3b5d50] rounded-2xl"
+          />
+          <p className="text-center sm:text-left">info@Furniflex.com</p>
         </div>
 
-        <div className="flex items-center m-4">
-          <div>
-            <Image
-              src="/icon/phone-call.png"
-              alt="Phone"
-              width={40}
-              height={40}
-              className="p-3 bg-[#3b5d50] rounded-2xl"
-            />
-          </div>
-          <div className="ml-2">
-            <p>+1 294 3925 3939</p>
-          </div>
+        <div className="flex items-center gap-3">
+          <Image
+            src="/icon/phone-call.png"
+            alt="Phone"
+            width={40}
+            height={40}
+            className="p-3 bg-[#3b5d50] rounded-2xl"
+          />
+          <p className="text-center sm:text-left">+1 294 3925 3939</p>
         </div>
       </div>
 
       {/* Contact Form */}
-      <div className="flex justify-center ">
+      <div className="flex justify-center px-6 md:px-16 lg:px-32 xl:px-52">
         <form
           onSubmit={handleSubmit}
-          className="rounded-2xl p-8 w-1/2"
+          className="rounded-2xl p-8 w-full sm:w-4/5 md:w-2/3 lg:w-1/2 bg-white shadow-md"
         >
-          <div className="grid grid-cols-2 gap-4 mb-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
             <input
               type="text"
               name="firstName"

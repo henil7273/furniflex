@@ -114,59 +114,122 @@ export default function Services() {
             </div>
 
             <div>
-                <div className="flex  text-black px-6 py-24 md:px-16 lg:px-32 xl:px-52 justify-center">
+                <div className="lg:flex md:block text-center text-black px-6 py-24 md:px-16 lg:px-32 xl:px-52 justify-center">
                     <div className="mt-12">
                         <h2 className="text-3xl mb-4 ">Crafted with <br /> excellent material.</h2>
                         <p className="mb-4 text-gray-600 leading-medium">Donec vitae odio quis nisl dapibus malesuada.<br /> Nullam ac aliquet velit. Aliquam vulputate velit <br /> imperdiet dolor tempor tristique.</p>
                         <button className="px-6 py-3 rounded-4xl bg-[#2f2f2f] text-white">Explore</button>
                     </div>
 
-                    <div className="flex">
+                    <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-6">
                         {/* Card 1 */}
                         <div className="relative group items-center text-center m-4 rounded-lg p-8 overflow-visible">
-                            <div className="mb-4 relative z-10 m-4 transform transition-all duration-300 group-hover:-translate-y-4">
-                                <Image src="/images/products/product-1.png" alt="Product 1" width={320} height={320} className="w-[320px] relative z-10" />
+
+                            {/* Image */}
+                            <div className="mb-4 relative z-10 transform transition-all duration-300 group-hover:-translate-y-4 flex justify-center">
+                                <Image
+                                    src="/images/products/product-1.png"
+                                    alt="Nordic Chair"
+                                    width={320}
+                                    height={320}
+                                    className="w-[320px] relative z-10"
+                                />
                             </div>
+
+
+                            {/* Text */}
                             <div className="relative z-10">
                                 <p className="mb-2">Nordic Chair</p>
                                 <span className="text-xl">$50.00</span>
                             </div>
+
+                            {/* Cross Icon */}
                             <div className="absolute bottom-2 left-1/2 z-10 transform -translate-x-1/2 transition-all duration-500 
-                opacity-0 group-hover:opacity-100 group-hover:translate-y-[90%]">
-                                <Image src="/icon/cross.svg" alt="close" width={24} height={24} className="w-6 bg-black p-1 rounded-full" />
+                            opacity-0 group-hover:opacity-100 group-hover:translate-y-[90%]">
+                                <Image
+                                    src="/icon/cross.svg"
+                                    alt="close"
+                                    width={24}
+                                    height={24}
+                                    className="w-6 bg-black p-1 rounded-full"
+                                />
                             </div>
+
+                            {/* Overlay */}
                             <div className="absolute inset-0 z-0 before:absolute before:bottom-0 before:left-0 before:w-full before:h-0 before:bg-[#dce5e4] before:transition-all before:duration-500 group-hover:before:h-3/5 before:content-['']"></div>
                         </div>
 
                         {/* Card 2 */}
                         <div className="relative group items-center text-center m-4 rounded-lg p-8 overflow-visible">
-                            <div className="mb-4 relative z-10 m-4 transform transition-all duration-300 group-hover:-translate-y-4">
-                                <Image src="/images/products/product-2.png" alt="Product 2" width={320} height={320} className="w-[320px] relative z-10" />
+
+                            {/* Image */}
+                            <div className="mb-4 relative z-10 transform transition-all duration-300 group-hover:-translate-y-4 flex justify-center">
+                                <Image
+                                    src="/images/products/product-2.png"
+                                    alt="Nordic Chair"
+                                    width={320}
+                                    height={320}
+                                    className="w-[320px] relative z-10"
+                                />
                             </div>
+
+
+                            {/* Text */}
                             <div className="relative z-10">
                                 <p className="mb-2">Nordic Chair</p>
                                 <span className="text-xl">$50.00</span>
                             </div>
+
+                            {/* Cross Icon */}
                             <div className="absolute bottom-2 left-1/2 z-10 transform -translate-x-1/2 transition-all duration-500 
-                opacity-0 group-hover:opacity-100 group-hover:translate-y-[90%]">
-                                <Image src="/icon/cross.svg" alt="close" width={24} height={24} className="w-6 bg-black p-1 rounded-full" />
+                            opacity-0 group-hover:opacity-100 group-hover:translate-y-[90%]">
+                                <Image
+                                    src="/icon/cross.svg"
+                                    alt="close"
+                                    width={24}
+                                    height={24}
+                                    className="w-6 bg-black p-1 rounded-full"
+                                />
                             </div>
+
+                            {/* Overlay */}
                             <div className="absolute inset-0 z-0 before:absolute before:bottom-0 before:left-0 before:w-full before:h-0 before:bg-[#dce5e4] before:transition-all before:duration-500 group-hover:before:h-3/5 before:content-['']"></div>
                         </div>
 
                         {/* Card 3 */}
                         <div className="relative group items-center text-center m-4 rounded-lg p-8 overflow-visible">
-                            <div className="mb-4 relative z-10 m-4 transform transition-all duration-300 group-hover:-translate-y-4">
-                                <Image src="/images/products/product-3.png" alt="Product 3" width={320} height={320} className="w-[320px] relative z-10" />
+
+                            {/* Image */}
+                            <div className="mb-4 relative z-10 transform transition-all duration-300 group-hover:-translate-y-4 flex justify-center">
+                                <Image
+                                    src="/images/products/product-3.png"
+                                    alt="Nordic Chair"
+                                    width={320}
+                                    height={320}
+                                    className="w-[320px] relative z-10"
+                                />
                             </div>
+
+
+                            {/* Text */}
                             <div className="relative z-10">
                                 <p className="mb-2">Nordic Chair</p>
                                 <span className="text-xl">$50.00</span>
                             </div>
+
+                            {/* Cross Icon */}
                             <div className="absolute bottom-2 left-1/2 z-10 transform -translate-x-1/2 transition-all duration-500 
-                opacity-0 group-hover:opacity-100 group-hover:translate-y-[90%]">
-                                <Image src="/icon/cross.svg" alt="close" width={24} height={24} className="w-6 bg-black p-1 rounded-full" />
+                            opacity-0 group-hover:opacity-100 group-hover:translate-y-[90%]">
+                                <Image
+                                    src="/icon/cross.svg"
+                                    alt="close"
+                                    width={24}
+                                    height={24}
+                                    className="w-6 bg-black p-1 rounded-full"
+                                />
                             </div>
+
+                            {/* Overlay */}
                             <div className="absolute inset-0 z-0 before:absolute before:bottom-0 before:left-0 before:w-full before:h-0 before:bg-[#dce5e4] before:transition-all before:duration-500 group-hover:before:h-3/5 before:content-['']"></div>
                         </div>
                     </div>
