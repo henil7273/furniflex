@@ -25,14 +25,14 @@ export default function Loginpage() {
       const res = await fetch("/api/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email: data.email,
-          password: data.password,
-        }),
+        body: JSON.stringify(data),
       });
 
       const json = await res.json();
       if (!res.ok) throw new Error(json.error || "login failed");
+
+      // ✅ Save JWT in localStorage
+      localStorage.setItem("token", json.token);
 
       Swal.fire({
         title: "Login Success!",
@@ -41,13 +41,14 @@ export default function Loginpage() {
         confirmButtonText: "Go to homepage",
       }).then((result) => {
         if (result.isConfirmed) {
-          router.push("/"); // ✅ redirect
+          router.push("/"); // middleware will check token
         }
       });
     } catch (error) {
       console.error("login error:", error);
     }
   };
+
 
   return (
     <div

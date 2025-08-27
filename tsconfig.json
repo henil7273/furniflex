@@ -23,6 +23,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/checkout/[username]"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/checkout/[username]", "models/cart.js", "models/product.js", "app/api/cart/[userid]/route.js"],
   "exclude": ["node_modules"]
 }

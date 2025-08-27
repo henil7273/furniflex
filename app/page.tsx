@@ -1,4 +1,7 @@
 "use client"
+
+import { useEffect, useState } from 'react';
+
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
@@ -11,6 +14,7 @@ import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
 
 export default function Home() {
+
   return (
     <div>
       <div className="bg-[#3b5d50] px-6 py-8 md:px-16 lg:px-32 xl:px-52 ">
