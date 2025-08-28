@@ -8,7 +8,7 @@ import Image from "next/image";
 export default function CartPage() {
   const router = useRouter();
   const { userid } = useParams();
-  const [cart, setCart] = useState<any>(null);
+  const [cart, setCart] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

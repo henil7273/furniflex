@@ -8,7 +8,7 @@ import { ToastContainer, toast } from 'react-toastify';
 export default function Shop() {
 
   const [products, setProducts] = useState([]);
-  const [user, setUser] = useState<User | null>(null)
+  const [user, setUser] = useState(null)
 
   useEffect(() => {
     fetch("/api/shop")

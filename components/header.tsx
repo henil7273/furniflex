@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 
 type User = {
+  id: string
   firstName: string;
   lastName?: string;
   email?: string;
