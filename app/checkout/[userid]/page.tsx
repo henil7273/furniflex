@@ -87,6 +87,7 @@ export default function Checkout() {
                 confirmButtonText: "Go to homepage",
             }).then((result) => {
                 if (result.isConfirmed) {
+                    setCartItems(null);
                     router.push("/"); // middleware will check token
                 }
             });
