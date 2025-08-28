@@ -1,10 +1,10 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
-import { useRouter } from "next/router";
+import Swal from "sweetalert2";
 import "react-toastify/dist/ReactToastify.css";
 
 type FormData = {
@@ -80,16 +80,17 @@ export default function Checkout() {
 
             if (!res.ok) throw new Error(result.message || "Failed to place order");
 
-            toast.success("Order Placed Successfully ", {
-                autoClose: 1000, // 1000ms = 1 second
-                hideProgressBar: false,
-                closeOnClick: false,
-                pauseOnHover: false,
-                draggable: true,
-                progress: undefined,
+            Swal.fire({
+                title: "Order placed Successfully !",
+                text: "Do you want to continue",
+                icon: "success",
+                confirmButtonText: "Go to homepage",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    router.push("/"); // middleware will check token
+                }
             });
 
-<<<<<<< HEAD
 
         } catch (error: any) {
             console.error("❌ Order error:", error);
@@ -106,26 +107,6 @@ export default function Checkout() {
                 Checkout
             </div>
 
-=======
-             router.push("/");
-
-
-        } catch (error: any) {
-            console.error("❌ Order error:", error);
-            alert(error.message || "Something went wrong");
-        }
-    };
-
-    if (loading) return <p className="text-center mt-10">Loading cart...</p>;
-
-    return (
-        <div>
-            <ToastContainer />
-            <div className="bg-[#3b5d50] h-80 flex items-center pl-36 text-4xl text-white">
-                Checkout
-            </div>
-
->>>>>>> origin/main
             <form
                 onSubmit={handleSubmit(onSubmit)}
                 className="text-black px-6 md:px-16 lg:px-32 xl:px-52 pb-50 pt-20"
