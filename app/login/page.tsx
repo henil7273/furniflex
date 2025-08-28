@@ -20,7 +20,7 @@ export default function Loginpage() {
     formState: { errors },
   } = useForm<LoginFormData>(); // 👈 Pass type here
 
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState(null);
 
   // Function to fetch user explicitly
   const fetchUser = () => {
