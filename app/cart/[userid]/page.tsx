@@ -200,7 +200,7 @@ export default function CartPage() {
 
                   <button
                     onClick={() =>
-                      router.push(`/checkout/${userid}`, { state: { cart } }) // ✅ pass cart state
+                      router.push(`/checkout/${userid}`) 
                     }
                     className="w-full bg-black text-white py-3 text-lg font-medium rounded-lg hover:bg-gray-800 transition cursor-pointer"
                   >
