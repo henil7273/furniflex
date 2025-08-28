@@ -56,7 +56,15 @@ export default function CartPage() {
       if (!res.ok) throw new Error("Failed to remove item");
       const data = await res.json();
       setCart(data.cart); // update state without reload
-      toast.warn("item deleted !")
+      toast.warn("Item removed from cart", {
+          autoClose: 1000, // 1000ms = 1 second
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+
     } catch (error) {
       console.error("Remove item error:", error);
     }

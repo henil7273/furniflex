@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 
 type User = {
-  id: string
+  id: string;
   firstName: string;
   lastName?: string;
   email?: string;
@@ -14,10 +14,10 @@ export default function Page() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [user, setUser] = useState<User | null>(null);
 
-  useEffect(() => {
+  // Function to fetch user explicitly
+  const fetchUser = () => {
     const token = localStorage.getItem("token");
-
-    if (!token) return;
+    if (!token) return setUser(null);
 
     fetch("/api/protected/me", {
       headers: { Authorization: `Bearer ${token}` },
@@ -26,10 +26,13 @@ export default function Page() {
         if (!res.ok) throw new Error("Unauthorized");
         return res.json();
       })
-      .then((data) => {
-        if (data.user) setUser(data.user);
-      })
+      .then((data) => setUser(data.user || null))
       .catch(() => setUser(null));
+  };
+
+  // Fetch user once on mount
+  useEffect(() => {
+    fetchUser();
   }, []);
 
   const navItems = [
@@ -96,7 +99,7 @@ export default function Page() {
                   <Image src="/icon/cart.png" alt="Cart" width={20} height={20} />
                 </Link>
               ) : (
-                <div className="flex gap-2 text-xl text-white font-semibold">
+                <div className="flex gap-2 text-xl text-white font-semibold ">
                   <Link href="/login" className="hover:underline">
                     Login
                   </Link>
@@ -111,6 +114,7 @@ export default function Page() {
                 <Link
                   href="/"
                   className="flex items-center text-white"
+                  onClick={fetchUser} // optional: refresh name manually
                 >
                   <Image
                     src="/icon/user.png"
@@ -128,9 +132,9 @@ export default function Page() {
 
         {/* Mobile Menu */}
         <div
-          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out text-center
-            ${menuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"}
-          `}
+          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out text-center pb-6
+    ${menuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"}
+  `}
         >
           <ul className="flex flex-col gap-4 text-base font-semibold py-4">
             {navItems.map((item) => (
@@ -138,7 +142,7 @@ export default function Page() {
                 <Link
                   href={item.href}
                   className="hover:text-white text-gray-400 transition-all"
-                  onClick={() => setMenuOpen(false)} // close menu on click
+                  onClick={() => setMenuOpen(false)} // slide up menu on click
                 >
                   {item.label}
                 </Link>
@@ -152,17 +156,18 @@ export default function Page() {
               <Link
                 href={`/cart/${user.id}`}
                 className="flex items-center gap-2 justify-center text-gray-200 ml-10"
+                onClick={() => setMenuOpen(false)} // hide menu when cart clicked
               >
                 <Image src="/icon/cart.png" alt="Cart" width={20} height={20} />
                 Cart
               </Link>
             ) : (
-              <div className="flex gap-3 justify-center text-base font-semibold text-gray-200">
-                <Link href="/login" className="hover:underline">
+              <div className="flex gap-3 justify-center text-base font-semibold text-gray-200 pl-10">
+                <Link href="/login" className="hover:underline" onClick={() => setMenuOpen(false)}>
                   Login
                 </Link>
                 <span>/</span>
-                <Link href="/signup" className="hover:underline">
+                <Link href="/signup" className="hover:underline" onClick={() => setMenuOpen(false)}>
                   Signup
                 </Link>
               </div>
@@ -172,6 +177,10 @@ export default function Page() {
               <Link
                 href="/userdashboard"
                 className="flex items-center gap-2 justify-center text-gray-200 mr-10"
+                onClick={() => {
+                  fetchUser?.(); // optional refresh
+                  setMenuOpen(false); // hide menu
+                }}
               >
                 <Image src="/icon/user.png" alt="User" width={20} height={20} />
                 {user.firstName}
@@ -179,6 +188,7 @@ export default function Page() {
             )}
           </div>
         </div>
+
       </header>
     </section>
   );

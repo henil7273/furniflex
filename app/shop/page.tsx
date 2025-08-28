@@ -62,13 +62,23 @@ export default function Shop() {
       .then((res) => res.json())
       .then((data) => {
         console.log("Cart updated:", data)
-        toast.success("Added to cart");
+        
+        // Faster toast
+        toast.success("Added to cart", {
+          autoClose: 1000, // 1000ms = 1 second
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+
       })
       .catch((err) => console.error("Error adding to cart:", err));
   };
 
   return (
-    <div><ToastContainer/>
+    <div><ToastContainer />
       <div className="bg-[#3b5d50] h-80 items-center flex pl-36 text-4xl text-white">
         Shop
       </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useForm } from "react-hook-form";
+import { useState } from "react";
 import Swal from "sweetalert2";
 import { useRouter } from "next/navigation";
 
@@ -18,6 +19,24 @@ export default function Loginpage() {
     handleSubmit,
     formState: { errors },
   } = useForm<LoginFormData>(); // 👈 Pass type here
+
+  const [user, setUser] = useState<User | null>(null);
+
+  // Function to fetch user explicitly
+  const fetchUser = () => {
+    const token = localStorage.getItem("token");
+    if (!token) return setUser(null);
+
+    fetch("/api/protected/me", {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error("Unauthorized");
+        return res.json();
+      })
+      .then((data) => setUser(data.user || null))
+      .catch(() => setUser(null));
+  };
 
   // ✅ Explicitly type "data"
   const onSubmit = async (data: LoginFormData) => {
@@ -52,13 +71,13 @@ export default function Loginpage() {
 
   return (
     <div
-      className="flex min-h-screen bg-cover bg-center"
+      className="flex flex-col md:flex-row min-h-screen bg-cover bg-center"
       style={{ backgroundImage: "url('/images/login.jpg')" }}
     >
       {/* Left side - Website Intro */}
-      <div className="w-1/2 text-[black] flex flex-col p-10">
-        <h1 className="text-4xl font-bold mb-4">FurniFlex</h1>
-        <p className="text-lg">
+      <div className="w-full md:w-1/2 text-black flex flex-col p-6 md:p-10 bg-white/70 md:bg-transparent">
+        <h1 className="text-3xl md:text-4xl font-bold mb-4">FurniFlex</h1>
+        <p className="text-base md:text-lg">
           Welcome to FurniFlex! <br />
           Your one-stop destination for <br /> premium furniture with style and
           comfort. <br />
@@ -66,13 +85,13 @@ export default function Loginpage() {
         </p>
       </div>
 
-      {/* Right side - login Form */}
-      <div className="w-1/2 flex justify-center items-center">
+      {/* Right side - Login Form */}
+      <div className="w-full md:w-1/2 flex justify-center items-center p-6 md:p-10">
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="bg-gray-100 shadow-2xl rounded-2xl p-8 w-full max-w-md"
+          className="bg-gray-100/90 shadow-2xl rounded-2xl p-6 md:p-8 w-full max-w-md"
         >
-          <h2 className="text-2xl font-semibold mb-6 text-center text-gray-800">
+          <h2 className="text-xl md:text-2xl font-semibold mb-6 text-center text-gray-800">
             Login
           </h2>
 
@@ -118,12 +137,13 @@ export default function Loginpage() {
 
           <button
             type="submit"
-            className="w-full bg-[#3b5d50] text-white py-3 rounded-lg font-semibold hover:bg-[#3b5d50] transition"
+            className="w-full bg-[#3b5d50] text-white py-3 rounded-lg font-semibold hover:bg-[#3b5d50]/90 transition"
           >
             Login
           </button>
         </form>
       </div>
     </div>
+
   );
 }

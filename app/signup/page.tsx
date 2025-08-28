@@ -44,7 +44,7 @@ export default function SignupPage() {
         }
       });
     } catch (e: any) {
-      setServerError(e.message);  
+      setServerError(e.message);
     } finally {
       setLoading(false);
     }
@@ -52,29 +52,29 @@ export default function SignupPage() {
 
   return (
     <div
-      className="flex min-h-screen bg-cover bg-center"
+      className="flex flex-col md:flex-row min-h-screen bg-cover bg-center"
       style={{ backgroundImage: "url('/images/signup.jpg')" }}
     >
       {/* Left side */}
-      <div className="w-1/2 text-[black] flex flex-col text-right p-10">
-        <h1 className="text-4xl font-bold mb-4">FurniFlex</h1>
-        <p className="text-lg text-right">
+      <div className="w-full md:w-1/2 text-black flex flex-col text-center md:text-right p-6 md:p-10 bg-white/70 md:bg-transparent">
+        <h1 className="text-3xl md:text-4xl font-bold mb-4">FurniFlex</h1>
+        <p className="text-base md:text-lg">
           Welcome to FurniFlex! <br />
           Your one-stop destination for premium furniture.
         </p>
       </div>
 
       {/* Right side - Signup Form */}
-      <div className="w-1/2 flex justify-center items-center">
+      <div className="w-full md:w-1/2 flex justify-center items-center p-6 md:p-10">
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="bg-gray-100 shadow-2xl rounded-2xl p-8 w-full max-w-md"
+          className="bg-gray-100/90 shadow-2xl rounded-2xl p-6 md:p-8 w-full max-w-md"
         >
-          <h2 className="text-2xl font-semibold mb-6 text-center text-gray-800">
+          <h2 className="text-xl md:text-2xl font-semibold mb-6 text-center text-gray-800">
             Create Account
           </h2>
 
-          <div className="grid grid-cols-2 gap-4 mb-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
             <div>
               <input
                 type="text"
@@ -144,5 +144,6 @@ export default function SignupPage() {
         </form>
       </div>
     </div>
+
   );
 }
