@@ -17,7 +17,6 @@ export async function GET() {
   }
 }
 
-
 export async function POST(req) {
   try {
     await connectDb();
@@ -31,20 +30,27 @@ export async function POST(req) {
       );
     }
 
-    // check if product exists
+    // ✅ check if product exists
     const product = await Product.findById(productId);
     if (!product) {
       return NextResponse.json({ error: "Product not found" }, { status: 404 });
     }
 
-    // find user's cart
+    // ✅ find user's cart
     let cart = await Cart.findOne({ userId });
 
     if (!cart) {
       // create new cart
       cart = await Cart.create({
         userId,
-        items: [{ productId, quantity: quantity || 1 }],
+        items: [
+          {
+            productId,
+            quantity: quantity || 1,
+            price: product.price, // ✅ store price when adding
+          },
+        ],
+        bill: product.price * (quantity || 1), // set initial bill
       });
     } else {
       // check if product already exists in cart
@@ -56,13 +62,24 @@ export async function POST(req) {
         // increment quantity
         cart.items[itemIndex].quantity += quantity || 1;
       } else {
-        // add new item
-        cart.items.push({ productId, quantity: quantity || 1 });
+        // add new item with price
+        cart.items.push({
+          productId,
+          quantity: quantity || 1,
+          price: product.price, // ✅ include price
+        });
       }
+
+      // ✅ recalc bill using stored price field
+      cart.bill = cart.items.reduce(
+        (acc, item) => acc + item.price * item.quantity,
+        0
+      );
 
       await cart.save();
     }
 
+    // ✅ always return populated cart
     const populatedCart = await cart.populate("items.productId");
 
     return NextResponse.json({ cart: populatedCart });

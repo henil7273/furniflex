@@ -1,4 +1,6 @@
 import mongoose from "mongoose";
+import Product from "./product";
+import { type } from "os";
 
 const cartSchema = new mongoose.Schema(
   {
@@ -11,7 +13,7 @@ const cartSchema = new mongoose.Schema(
       {
         productId: {
           type: mongoose.Schema.Types.ObjectId,
-          ref: "Product", // ✅ matches your Product model
+          ref: "Product",
           required: true,
         },
         quantity: {
@@ -19,8 +21,17 @@ const cartSchema = new mongoose.Schema(
           required: true,
           min: 1,
         },
+        price: {
+          type: Number,
+          required: true, // snapshot product price
+        },
       },
     ],
+    bill: {
+      type: Number,
+      required: true,
+      default: 0,
+    },
   },
   { timestamps: true }
 );

@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image"
+import { ToastContainer, toast } from 'react-toastify';
+
 
 export default function Shop() {
 
@@ -58,12 +60,15 @@ export default function Shop() {
       }),
     })
       .then((res) => res.json())
-      .then((data) => console.log("Cart updated:", data))
+      .then((data) => {
+        console.log("Cart updated:", data)
+        toast.success("Added to cart");
+      })
       .catch((err) => console.error("Error adding to cart:", err));
   };
 
   return (
-    <div>
+    <div><ToastContainer/>
       <div className="bg-[#3b5d50] h-80 items-center flex pl-36 text-4xl text-white">
         Shop
       </div>

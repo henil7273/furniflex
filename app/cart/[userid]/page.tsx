@@ -1,9 +1,12 @@
 "use client";
 import { useEffect, useState } from "react";
-import { useParams } from "next/navigation";
+import { useParams, useRouter} from "next/navigation";
+import { ToastContainer, toast } from 'react-toastify';
+
 import Image from "next/image";
 
 export default function CartPage() {
+  const router = useRouter();
   const { userid } = useParams();
   const [cart, setCart] = useState<any>(null);
   const [loading, setLoading] = useState(true);
@@ -53,6 +56,7 @@ export default function CartPage() {
       if (!res.ok) throw new Error("Failed to remove item");
       const data = await res.json();
       setCart(data.cart); // update state without reload
+      toast.warn("item deleted !")
     } catch (error) {
       console.error("Remove item error:", error);
     }
@@ -70,7 +74,7 @@ export default function CartPage() {
     ) || 0;
 
   return (
-    <div>
+    <div><ToastContainer/>
       {/* Banner */}
       <div className="bg-[#3b5d50] h-80 flex items-center pl-36 text-4xl text-white">
         Cart
@@ -184,7 +188,7 @@ export default function CartPage() {
 
                 <div className="flex justify-between mb-3">
                   <span className="text-gray-700">Subtotal</span>
-                  <strong className="text-black">${subtotal.toFixed(2)}</strong>
+                  <strong className="text-black">${cart.bill}</strong>
                 </div>
 
                 <div className="flex justify-between mb-5">
@@ -193,9 +197,12 @@ export default function CartPage() {
                 </div>
 
                 <div>
+
                   <button
-                    onClick={() => (window.location.href = "/checkout")}
-                    className="w-full bg-black text-white py-3 text-lg font-medium rounded-lg hover:bg-gray-800 transition"
+                    onClick={() =>
+                      router.push(`/checkout/${userid}`, { state: { cart } }) // ✅ pass cart state
+                    }
+                    className="w-full bg-black text-white py-3 text-lg font-medium rounded-lg hover:bg-gray-800 transition cursor-pointer"
                   >
                     Proceed To Checkout
                   </button>

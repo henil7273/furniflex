@@ -9,7 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/react": "^3.25.0",
+    "@emotion/react": "^11.14.0",
     "bcryptjs": "^3.0.2",
+    "chakra": "^0.0.3",
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.18.0",
     "mongoose": "^8.18.0",
@@ -17,6 +20,7 @@
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-hook-form": "^7.62.0",
+    "react-toastify": "^11.0.5",
     "sweetalert2": "^11.22.4",
     "swiper": "^11.2.10"
   },

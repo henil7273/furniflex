@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
 import { connectDb } from "@/lib/dbConnect";
 import Cart from "@/models/cart";
-import Product from "@/models/product"; // ✅ ensures schema is registered
 import mongoose from "mongoose";
 
 // GET /api/cart/:userid
@@ -24,7 +23,6 @@ export async function GET(req, { params }) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
-
 // ✅ DELETE: remove one item from the cart
 export async function DELETE(req, { params }) {
   try {
@@ -37,7 +35,7 @@ export async function DELETE(req, { params }) {
       return NextResponse.json({ error: "ProductId required" }, { status: 400 });
     }
 
-    // 1️⃣ Pull the item
+    // 1️⃣ Pull the item and return updated cart
     let cart = await Cart.findOneAndUpdate(
       { userId: userid },
       { $pull: { items: { productId } } },
@@ -48,10 +46,13 @@ export async function DELETE(req, { params }) {
       return NextResponse.json({ error: "Cart not found" }, { status: 404 });
     }
 
-    // 2️⃣ Recalculate bill manually
-    cart.bill = cart.items.reduce((acc, item) => acc + item.quantity * item.price, 0);
+    // 2️⃣ Recalculate bill using populated product prices
+    cart.bill = cart.items.reduce(
+      (acc, item) => acc + item.quantity * (item.productId?.price || 0),
+      0
+    );
 
-    // 3️⃣ Save updated cart (so pre-save won’t be skipped)
+    // 3️⃣ Save updated cart
     await cart.save();
 
     return NextResponse.json({ cart });

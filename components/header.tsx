@@ -108,7 +108,7 @@ export default function Page() {
 
               {user && (
                 <Link
-                  href="/userdashboard"
+                  href="/"
                   className="flex items-center text-white"
                 >
                   <Image
